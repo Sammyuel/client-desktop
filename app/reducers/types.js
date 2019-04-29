@@ -4,6 +4,7 @@ export type counterStateType = {
   +counter: number
 };
 
+
 export type Action = {
   +type: string
 };

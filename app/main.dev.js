@@ -10,10 +10,12 @@
  *
  * @flow
  */
-import { app, BrowserWindow } from 'electron';
+import { getDefaultArgs } from 'appium/build/lib/parser';
+import { ipcMain, app, BrowserWindow } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
+import {main as mainServer} from 'appium'
 
 export default class AppUpdater {
   constructor() {
@@ -59,7 +61,12 @@ app.on('window-all-closed', () => {
   }
 });
 
+
 app.on('ready', async () => {
+  ipcMain.on('get-default-args', (evt) => {
+    evt.returnValue = getDefaultArgs();
+  });
+
   if (
     process.env.NODE_ENV === 'development' ||
     process.env.DEBUG_PROD === 'true'
@@ -99,4 +106,8 @@ app.on('ready', async () => {
   // Remove this if your app does not use auto updates
   // eslint-disable-next-line
   new AppUpdater();
+  ipcMain.on('start-server', async(event, args) => {
+    mainServer(args)
+  });
+
 });
