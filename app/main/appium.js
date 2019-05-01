@@ -10,8 +10,7 @@ import { fs, tempDir } from 'appium-support';
 import _ from 'lodash';
 import {createSession, killSession, getSessionHandler} from './appium-method-handler';
 import request from 'request-promise';
-import { checkNewUpdates } from './auto-updater';
-import { openBrowserWindow} from './helpers';
+import { openBrowserWindow} from './helper';
 import appiumConnect from './appium_connect/appium-connect';
 
 const LOG_SEND_INTERVAL_MS = 250;
@@ -38,8 +37,13 @@ export function createNewSessionWindow(win){
 
 }
 
-export function appiumConnect(){
-  ipcMain.on("get-default-caps", (event, args) => {
-    appiumConnect()
+export function connectAppiumConnect(win){
+   appiumConnect(win)
+}
+
+function connectStartSession(win){
+  console.log('wtf')
+  ipcMain.on('start-session', (event, args) => {
+    console.log('it worked')
   })
 }

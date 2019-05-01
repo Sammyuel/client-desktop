@@ -8,6 +8,7 @@ export default class StartSessions extends Component<Props>{
 		return (
 			<div>
 				<Link to={routes.HOME}> back home </Link> 
+				<button onClick={this.props.startSessions}> sessions </button>
 			</div>
 		);
 	}

@@ -12,12 +12,12 @@
  */
 import wd from 'wd'
 import { getDefaultArgs } from 'appium/build/lib/parser';
-import { ipcMain, app, BrowserWindow } from 'electron';
+import { ipcMain, app, BrowserWindow} from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import {main as mainServer} from 'appium'
-import {appiumConnect} from 'main/appium';
+import {connectAppiumConnect, connectStartSession} from './main/appium';
 
 export default class AppUpdater {
   constructor() {
@@ -110,9 +110,18 @@ app.on('ready', async () => {
   // Remove this if your app does not use auto updates
   // eslint-disable-next-line
   new AppUpdater();
-  ipcMain.on('start-server', async(event, args) => {
+  ipcMain.on('start-server', (event, args) => {
     mainServer(args)
   });
+  ipcMain.on('get-default-caps', (event,args) =>{
+    console.log("look above")
+    connectAppiumConnect(mainWindow);
+  })
+  ipcMain.on('start-session', (event,args) => {
+    console.log("fuck this");
+  })
+  connectStartSession(mainWindow);
 
 
 });
+

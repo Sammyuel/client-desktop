@@ -1,7 +1,7 @@
 import {ipcMain} from 'electron';
 
 
-export default async function get_caps_info(){
+export default async function get_caps_info(win){
 	var exec = require('child_process').exec;
 	async function callback(error, stdout, stderr) {
 		console.log(stdout.split('\n')[0])
@@ -22,7 +22,7 @@ export default async function get_caps_info(){
 				path: '/wd/hub'
 			}
 		})
-		ipcMain.send('default-caps', device_caps)
+		win.webContents.send('default-caps', device_caps)
 
 	}
 	exec("adb devices", callback);
