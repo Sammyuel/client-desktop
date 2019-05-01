@@ -32,9 +32,11 @@ export default class StartServer extends Component<Props> {
       <div>
         <h2>HELLLLLLOOO</h2>
         <Link to={routes.HOME}> home </Link>
+        <Link to={routes.SESSIONS}> sessions </Link>
         <button onClick={this.props.startServer}> Touch me </button>
         <button onClick={this.example}> hello </button>
         <button onClick={this.props.startServer}> hi </button>
+
 
       </div>
     );

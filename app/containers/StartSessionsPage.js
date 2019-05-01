@@ -1,15 +1,15 @@
 import {bindActionCreators} from 'redux';
-import {connect} from 'react-redu';
+import {connect} from 'react-redux';
 import * as StartSessionsActions from '../actions/StartSessions';
-import startSessions from '../components/Main';
+import startSessions from '../components/StartSessions';
 
 
 function mapStateToProps(state){
-	return state.startSession;
+	return state;
 }
 
 function mapDispatchToProps(dispatch){
-	return bindActionsCreators(StartSessionsActions, dispatch)
+	return bindActionCreators(StartSessionsActions, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(startSessions);

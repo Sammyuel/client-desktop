@@ -1,5 +1,5 @@
 
-initialState = {
+let initialState = {
 	sessionId: '021412421421',
 };
 

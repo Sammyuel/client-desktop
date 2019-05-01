@@ -10,8 +10,8 @@ import StartSessionsPage from './containers/StartSessionsPage'
 export default () => (
   <App>
     <Switch>
-      <Route path={routes.MAIN} component={StartSessionsPage} />
       <Route path={routes.COUNTER} component={CounterPage} />
+      <Route path={routes.SESSIONS} component={StartSessionsPage} />
       <Route path={routes.STARTSERVER} component={StartServerPage}/>
       <Route path={routes.HOME} component={HomePage} />
     </Switch>

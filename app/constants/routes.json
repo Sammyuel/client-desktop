@@ -1,6 +1,6 @@
 {
   "HOME": "/",
-  "MAIN": "/StartSessions",
+  "SESSIONS": "/StartSessions",
   "COUNTER": "/counter",
   "STARTSERVER": "/startServer"
 }

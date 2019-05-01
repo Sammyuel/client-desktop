@@ -30,6 +30,12 @@ export function startServer(evt) {
   };
 }
 
+export function sessionsWindow(evt){
+  return (dispatch, getState) => {
+    const {capabilities} = getState().capabilities;
+  }
+}
+
 export function increment() {
   return {
     type: INCREMENT_COUNTER
@@ -60,4 +66,10 @@ export function incrementAsync(delay: number = 1000) {
       dispatch(increment());
     }, delay);
   };
+}
+
+export function startSession(){
+  return (disaptch, getState) =>{
+    dispatch();
+  }
 }

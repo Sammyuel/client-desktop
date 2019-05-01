@@ -10,12 +10,14 @@
  *
  * @flow
  */
+import wd from 'wd'
 import { getDefaultArgs } from 'appium/build/lib/parser';
 import { ipcMain, app, BrowserWindow } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import {main as mainServer} from 'appium'
+import {appiumConnect} from 'main/appium';
 
 export default class AppUpdater {
   constructor() {
@@ -60,6 +62,8 @@ app.on('window-all-closed', () => {
     app.quit();
   }
 });
+
+
 
 
 app.on('ready', async () => {
@@ -109,5 +113,6 @@ app.on('ready', async () => {
   ipcMain.on('start-server', async(event, args) => {
     mainServer(args)
   });
+
 
 });
