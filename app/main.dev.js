@@ -83,6 +83,7 @@ app.on('ready', async () => {
     width: 1024,
     height: 728
   });
+  connectStartSession(mainWindow);
 
   mainWindow.loadURL(`file://${__dirname}/app.html`);
 
@@ -120,7 +121,7 @@ app.on('ready', async () => {
   ipcMain.on('start-session', (event,args) => {
     console.log("fuck this");
   })
-  connectStartSession(mainWindow);
+  
 
 
 });

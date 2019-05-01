@@ -41,9 +41,23 @@ export function connectAppiumConnect(win){
    appiumConnect(win)
 }
 
-function connectStartSession(win){
-  console.log('wtf')
-  ipcMain.on('start-session', (event, args) => {
+export async function connectStartSession(win){
+  ipcMain.on('start-session', async (event, args) => {
+    const {desiredCapabilities, host, path, port} = args[0]
+    console.log(args)
+    console.log('----------')
+    console.log(desiredCapabilities)
+    console.log('--------')
+    console.log(args[0]['desiredCapabilities'])
+    console.log('--------------')
+    console.log(args[0].desiredCapabilities)
+    console.log('----------')
+    console.log(args[0])
+    console.log(typeof(args))
+    console.log('helpless')
+    const driver = wd.promiseChainRemote("http://localhost:4723/wd/hub");
+    driver.init(args[0].desiredCapabilities)
+
     console.log('it worked')
   })
 }
