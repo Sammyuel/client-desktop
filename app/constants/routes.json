@@ -2,5 +2,6 @@
   "HOME": "/",
   "SESSIONS": "/StartSessions",
   "COUNTER": "/counter",
-  "STARTSERVER": "/startServer"
+  "STARTSERVER": "/startServer",
+  "STARTSCRIPTS": "/startScripts"
 }

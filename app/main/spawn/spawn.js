@@ -15,7 +15,7 @@ export default class Spawn{
 	}
 
 	get get_scripts(){
-		return initiate_scripts()
+		return this.initiate_scripts()
 	}
 }
 

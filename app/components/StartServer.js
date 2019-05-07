@@ -36,6 +36,7 @@ export default class StartServer extends Component<Props> {
         <button onClick={this.props.startServer}> Touch me </button>
         <button onClick={this.example}> hello </button>
         <button onClick={this.props.startServer}> hi </button>
+        <Link to={routes.STARTSCRIPTS}> start scripts </Link>
 
 
       </div>

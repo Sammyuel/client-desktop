@@ -12,6 +12,7 @@ import {createSession, killSession, getSessionHandler} from './appium-method-han
 import request from 'request-promise';
 import { openBrowserWindow} from './helper';
 import appiumConnect from './appium_connect/appium-connect';
+import spawn from './spawn/spawn';
 
 const LOG_SEND_INTERVAL_MS = 250;
 
@@ -27,6 +28,13 @@ let logFile;
 
 function initializer(win){
 	connectStartServer(win);
+}
+
+export function connectStartScripts(win){
+  console.log("hello world");
+  let scripts = new spawn({path: '/Users/sam/Documents/node_spawn/example.py', args: ''})
+  let script_list = scripts.get_scripts
+  Promise.all(script_list).then(val => console.log(val))
 }
 
 export function createNewSessionWindow(win){
@@ -60,4 +68,11 @@ export async function connectStartSession(win){
 
     console.log('it worked')
   })
+}
+
+export function InitializeListeners(win){
+  connectStartScripts(win);
+  connectStartSession(win);
+  connectAppiumConnect(win);
+
 }

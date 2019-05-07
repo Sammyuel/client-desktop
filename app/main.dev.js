@@ -17,7 +17,7 @@ import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import {main as mainServer} from 'appium'
-import {connectAppiumConnect, connectStartSession} from './main/appium';
+import {connectStartScripts, connectAppiumConnect, connectStartSession} from './main/appium';
 
 export default class AppUpdater {
   constructor() {
@@ -120,6 +120,10 @@ app.on('ready', async () => {
   })
   ipcMain.on('start-session', (event,args) => {
     console.log("fuck this");
+  })
+
+  ipcMain.on('start-scripts', (event,args)=>{
+    connectStartScripts(args)
   })
   
 
