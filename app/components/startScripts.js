@@ -28,8 +28,8 @@ export default class StartScripts extends Component<Props>{
 						</FormItem>
 					</Form> 
 				</div>
-				{files.map((file) => {
-					return <div> {file} </div>
+				{files.map((file, index) => {
+					return <div key = {index}> {file} </div>
 				})}
 			</div>
 
